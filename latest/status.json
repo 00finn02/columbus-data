@@ -1,0 +1,70 @@
+{
+ "generated": "2026-11-01T00:05:16.601085+00:00",
+ "columbus_version": "0.1.0",
+ "jobs": [
+  {
+   "job": "cad",
+   "dataset_id": 6,
+   "status": "succeeded",
+   "detail": "v2, 3175 records"
+  },
+  {
+   "job": "horizons",
+   "dataset_id": 7,
+   "status": "succeeded",
+   "detail": "v2, 7679 records"
+  }
+ ],
+ "datasets": [
+  {
+   "source": "sbdb",
+   "current_version": 1,
+   "current_finished_at": "2026-10-31T23:41:06.345484",
+   "current_records": 536,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "cad",
+   "current_version": 2,
+   "current_finished_at": "2026-11-01T00:04:57.441919",
+   "current_records": 3175,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "horizons",
+   "current_version": 2,
+   "current_finished_at": "2026-11-01T00:05:16.367703",
+   "current_records": 7679,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "horizons_elements",
+   "current_version": 1,
+   "current_finished_at": "2026-10-31T23:45:02.703039",
+   "current_records": 211,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "nhats",
+   "current_version": 1,
+   "current_finished_at": "2026-10-31T23:41:10.634443",
+   "current_records": 7164,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "pgda_lola",
+   "current_version": null,
+   "current_finished_at": null,
+   "current_records": null,
+   "latest_status": null
+  }
+ ],
+ "files": [
+  "catalogue.csv",
+  "catalogue.provenance.json",
+  "spacecraft.json"
+ ],
+ "skipped": {
+  "heightmap_*.png": "no DEM stored yet (run the lola job manually)"
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "updated": "2026-11-01T00:05:22.231041+00:00",
+ "storage": "release asset `state-latest` (state.tar.gz: SQLite database + local storage)",
+ "datasets": [
+  {
+   "source": "sbdb",
+   "current_version": 1,
+   "current_finished_at": "2026-10-31T23:41:06.345484",
+   "current_records": 536,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "cad",
+   "current_version": 2,
+   "current_finished_at": "2026-11-01T00:04:57.441919",
+   "current_records": 3175,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "horizons",
+   "current_version": 2,
+   "current_finished_at": "2026-11-01T00:05:16.367703",
+   "current_records": 7679,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "horizons_elements",
+   "current_version": 1,
+   "current_finished_at": "2026-10-31T23:45:02.703039",
+   "current_records": 211,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "nhats",
+   "current_version": 1,
+   "current_finished_at": "2026-10-31T23:41:10.634443",
+   "current_records": 7164,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "pgda_lola",
+   "current_version": null,
+   "current_finished_at": null,
+   "current_records": null,
+   "latest_status": null
+  }
+ ],
+ "state_archive": {
+  "file": "state.tar.gz",
+  "bytes": 3567916,
+  "sha256": "f3576a1147706a2a54d5bb204512af5374efcc8948de0394fc9cef1890c726c6"
+ }
+}
