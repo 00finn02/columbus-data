@@ -1,18 +1,12 @@
 {
- "generated": "2026-11-01T00:05:16.601085+00:00",
+ "generated": "2026-11-01T00:07:43.370170+00:00",
  "columbus_version": "0.1.0",
  "jobs": [
   {
-   "job": "cad",
-   "dataset_id": 6,
+   "job": "lola",
+   "dataset_id": 8,
    "status": "succeeded",
-   "detail": "v2, 3175 records"
-  },
-  {
-   "job": "horizons",
-   "dataset_id": 7,
-   "status": "succeeded",
-   "detail": "v2, 7679 records"
+   "detail": "v1, 1 records"
   }
  ],
  "datasets": [
@@ -53,18 +47,18 @@
   },
   {
    "source": "pgda_lola",
-   "current_version": null,
-   "current_finished_at": null,
-   "current_records": null,
-   "latest_status": null
+   "current_version": 1,
+   "current_finished_at": "2026-11-01T00:07:42.572393",
+   "current_records": 1,
+   "latest_status": "succeeded"
   }
  ],
  "files": [
   "catalogue.csv",
   "catalogue.provenance.json",
-  "spacecraft.json"
+  "spacecraft.json",
+  "heightmap_shackleton.png",
+  "heightmap_shackleton.json"
  ],
- "skipped": {
-  "heightmap_*.png": "no DEM stored yet (run the lola job manually)"
- }
+ "skipped": {}
 }

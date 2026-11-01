@@ -1,0 +1,27 @@
+{
+ "w": 1304,
+ "h": 1304,
+ "x0": -5345.0,
+ "y0": 6635.0,
+ "sx": 20.0,
+ "sy": -20.0,
+ "min": -2872.2119140625,
+ "max": 1737.78759765625,
+ "crs_proj4": "+proj=stere +lat_0=-90 +lat_ts=-90 +lon_0=0 +k=1 +x_0=0 +y_0=0 +R=1737400 +units=m +no_defs",
+ "encoding": "v = round((z + 32768) * 256); R=v>>16&255, G=v>>8&255, B=v&255; alpha 255, missing alpha 254",
+ "master_dem_id": 1,
+ "master_s3_key": "dems/moon/lola_5mpp_87s/shackleton/v1.tif",
+ "level": 2,
+ "processing": "overview level 2 of the master (20 m; NaN-aware mean of 2x2 blocks of the next finer level), then encoded as described",
+ "provenance": {
+  "source": "NASA PGDA LOLA 5 m/px south polar mosaic",
+  "source_url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/87S/ldem_87s_5mpp.tif",
+  "dataset_id": 8,
+  "dataset_version": 1,
+  "retrieved_at": "2026-11-01T00:07:42.572393",
+  "data_as_of": null,
+  "epoch_jd_tdb": null,
+  "method": "HTTP range reads of the tiles covering the clip; Deflate + floating-point predictor decoded; heights in metres copied unchanged (no resampling) into a Cloud-Optimized GeoTIFF master (lossless Deflate + floating-point predictor, 512 px tiles); internal overviews: NaN-aware mean of 2x2 blocks of the next finer level",
+  "checks_passed": true
+ }
+}

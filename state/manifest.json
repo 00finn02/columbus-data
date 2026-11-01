@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T00:05:22.231041+00:00",
+ "updated": "2026-11-01T00:07:58.551628+00:00",
  "storage": "release asset `state-latest` (state.tar.gz: SQLite database + local storage)",
  "datasets": [
   {
@@ -39,15 +39,15 @@
   },
   {
    "source": "pgda_lola",
-   "current_version": null,
-   "current_finished_at": null,
-   "current_records": null,
-   "latest_status": null
+   "current_version": 1,
+   "current_finished_at": "2026-11-01T00:07:42.572393",
+   "current_records": 1,
+   "latest_status": "succeeded"
   }
  ],
  "state_archive": {
   "file": "state.tar.gz",
-  "bytes": 3567916,
-  "sha256": "f3576a1147706a2a54d5bb204512af5374efcc8948de0394fc9cef1890c726c6"
+  "bytes": 87113473,
+  "sha256": "114dd8f1874fd45bea5f6345b84872a9817ba459d987defaf0661a4fd36281a3"
  }
 }
