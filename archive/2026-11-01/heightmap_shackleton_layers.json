@@ -1,0 +1,170 @@
+{
+ "w": 1304,
+ "h": 1304,
+ "x0": -5345.0,
+ "y0": 6635.0,
+ "sx": 20.0,
+ "sy": -20.0,
+ "crs_proj4": "+proj=stere +lat_0=-90 +lat_ts=-90 +lon_0=0 +k=1 +x_0=0 +y_0=0 +R=1737400 +units=m +no_defs",
+ "grid": "same grid as heightmap_shackleton.png (master level 2)",
+ "encoding": "RGBA 8 bit: R = illumination 0..1 -> round(250 x), G = Earth visibility 0..1 -> round(250 x), B = round(4 x slope in degrees), slope capped at 63.75 deg; alpha 255 valid, 254 missing (RGB 0)",
+ "metrics": {
+  "illumination": "mean visible fraction of the solar disc over the period (disc of the true angular radius against a locally straight horizon, linear horizon interpolation between azimuth bins)",
+  "earth": "fraction of time steps with the Earth's centre above the horizon",
+  "psr": "permanently shadowed: in no azimuth bin does the highest upper solar limb (disc centre + angular radius) over the envelope period rise above the horizon",
+  "slope": "terrain slope in degrees, central differences on the output grid"
+ },
+ "period": {
+  "start_utc": "2026-11-01T00:00:00+00:00",
+  "end_utc": "2027-11-01T06:00:00+00:00",
+  "step_hours": 2.0,
+  "steps": 4383,
+  "applies_to": "illumination and earth channels"
+ },
+ "psr_envelope": {
+  "start_utc": "2026-11-01T00:00:00+00:00",
+  "end_utc": "2045-06-07T12:00:00+00:00",
+  "step_hours": 6.0,
+  "definition": "permanently shadowed: in no azimuth bin does the highest upper solar limb (disc centre + angular radius) over the envelope period rise above the horizon",
+  "file": "heightmap_shackleton_psr.png (255 = permanently shadowed, 0 = not)"
+ },
+ "horizon": {
+  "radius_m": 250000.0,
+  "azimuth_bins": 360,
+  "near_field_radius_m": 5176.776695296637,
+  "near_field": "per pixel, straight map rays, step max(pixel, 2 % of distance), curvature d\u00b2/2R",
+  "far_field": "great-circle rays from nodes every 250 m, 5000 m to 250000 m, step 1.5 % of distance, exact 3D",
+  "curvature": "included (spherical Moon, R = 1737.4 km)",
+  "observer_height": "on the surface (no mast)"
+ },
+ "sun_disc": "true angular radius from SPICE distance (R_sun from pck00011)",
+ "earth": "centre only (disc ~1.9 deg not modelled); apparent direction from the site",
+ "kernels": [
+  {
+   "name": "naif0012.tls",
+   "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/lsk/naif0012.tls",
+   "bytes": 5257,
+   "sha256": "678e32bdb5a744117a467cd9601cd6b373f0e9bc9bbde1371d5eee39600a039b",
+   "purpose": "leap seconds (UTC <-> TDB)"
+  },
+  {
+   "name": "de440s.bsp",
+   "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de440s.bsp",
+   "bytes": 32726016,
+   "sha256": "c1c7feeab882263fc493a9d5a5b2ddd71b54826cdf65d8d17a76126b260a49f2",
+   "purpose": "Sun, Earth, Moon ephemerides (DE440s)"
+  },
+  {
+   "name": "moon_pa_de421_1900-2050.bpc",
+   "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/moon_pa_de421_1900-2050.bpc",
+   "bytes": 1770496,
+   "sha256": "656f90616403d75a75f0cd6c8830fc5b44f8cb4facb5ccb8915e752b397520cf",
+   "purpose": "lunar orientation MOON_PA (DE421)"
+  },
+  {
+   "name": "moon_080317.tf",
+   "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/fk/satellites/moon_080317.tf",
+   "bytes": 21437,
+   "sha256": "78732477b96f9863e7b0d65bcee3c22b8707ca5ed0db56d1173319cb2e8c7993",
+   "purpose": "frames MOON_PA / MOON_ME (DE421)"
+  },
+  {
+   "name": "pck00011.tpc",
+   "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/pck00011.tpc",
+   "bytes": 131226,
+   "sha256": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1",
+   "purpose": "body radii (Sun radius for the disc)"
+  }
+ ],
+ "spice": {
+  "frame": "MOON_ME",
+  "aberration": "LT+S"
+ },
+ "dem_sources": {
+  "master": {
+   "dem_id": 1,
+   "product": "NASA PGDA product 81: LOLA 5 m/px DEM mosaic 87-90\u00b0S (ldem_87s_5mpp.tif), Barker et al. 2021, doi:10.1016/j.pss.2020.105119",
+   "url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/87S/ldem_87s_5mpp.tif",
+   "sha256": "293a8563d45a4dd4ccbb37d69436b5a2e0eca646a30a67c5b8445a2e09cf9713",
+   "levels_used_m": [
+    20.0,
+    40.0,
+    80.0
+   ]
+  },
+  "context": {
+   "product": "NASA PGDA product 90, LOLA south polar DEM 80-90 S, LDEM_80S_80MPP_ADJ (Barker et al.); heights in metres above 1737.4 km",
+   "url": "https://pgda.gsfc.nasa.gov/data/LOLA_20mpp/LDEM_80S_80MPP_ADJ.TIF",
+   "content_length": "189158392",
+   "etag": "W/\"b4653f8-189326141f0\"",
+   "last_modified": "Fri, 07 Jul 2023 22:03:02 GMT",
+   "windows": [
+    {
+     "page": 0,
+     "pixel_m": 80.0,
+     "row0": 3130,
+     "col0": 3146,
+     "height": 1501,
+     "width": 1501
+    },
+    {
+     "page": 1,
+     "pixel_m": 160.0,
+     "row0": 315,
+     "col0": 323,
+     "height": 3251,
+     "width": 3251
+    }
+   ],
+   "requests": 12,
+   "bytes_read": 44655289
+  }
+ },
+ "input_hash": "394b11f47ea8ddd5cbb021f8e71ddc08567b3cf1e85fc78dc1eff8a352a54eb6",
+ "plausibility": {
+  "valid_share": 1.0,
+  "floor_pixels": 77343,
+  "floor_psr_share": 1.0,
+  "floor_mean_illumination": 0.0,
+  "rim_pixels": 515582,
+  "rim_max_illumination": 0.7912796139717102,
+  "rim_p95_illumination": 0.39146170020103455,
+  "psr_share_total": 0.35451324852271443,
+  "illumination_max": 0.7912796139717102,
+  "earth_mean": 0.1817842721939087
+ },
+ "pgda_comparison": {
+  "note": "orientation: PGDA product 69 (Mazarico et al.) maps give the fraction of time with any part of the solar disc (resp. the Earth) visible, averaged over ~18.6 years on LDEM_85S_060M; ours cover one year from the run date",
+  "sun_any_part": {
+   "url": "https://pgda.gsfc.nasa.gov/data/MoonIllumination/AVGVISIB_85S_060M_201608.TIF",
+   "pixels": 1700416,
+   "bias": 0.0009,
+   "mae": 0.021,
+   "rmse": 0.0534,
+   "p95_abs": 0.0947,
+   "pearson_r": 0.9445
+  },
+  "earth": {
+   "url": "https://pgda.gsfc.nasa.gov/data/MoonIllumination/AVGVISIB_85S_060M_201608_EARTH.TIF",
+   "pixels": 1700416,
+   "bias": -0.0375,
+   "mae": 0.0464,
+   "rmse": 0.08,
+   "p95_abs": 0.1612,
+   "pearson_r": 0.9592
+  }
+ },
+ "provenance": {
+  "source": "NASA PGDA LOLA 5 m/px south polar mosaic",
+  "source_url": "https://pgda.gsfc.nasa.gov/data/LOLA_5mpp/87S/ldem_87s_5mpp.tif",
+  "dataset_id": 8,
+  "dataset_version": 1,
+  "retrieved_at": "2026-11-01T00:07:42.572393",
+  "data_as_of": null,
+  "epoch_jd_tdb": null,
+  "method": "HTTP range reads of the tiles covering the clip; Deflate + floating-point predictor decoded; heights in metres copied unchanged (no resampling) into a Cloud-Optimized GeoTIFF master (lossless Deflate + floating-point predictor, 512 px tiles); internal overviews: NaN-aware mean of 2x2 blocks of the next finer level",
+  "checks_passed": true
+ },
+ "dataset_id": 10,
+ "code_version": "0.1.0+45ff6291d439"
+}

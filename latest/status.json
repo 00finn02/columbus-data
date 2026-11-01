@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-01T00:56:56.117052+00:00",
+ "generated": "2026-11-01T01:40:37.360640+00:00",
  "columbus_version": "0.1.0",
  "jobs": [
   {
-   "job": "reach",
-   "dataset_id": 9,
+   "job": "moon",
+   "dataset_id": 10,
    "status": "succeeded",
-   "detail": "v1, 327 records"
+   "detail": "v1, 1700416 records"
   }
  ],
  "datasets": [
@@ -58,6 +58,13 @@
    "current_finished_at": "2026-11-01T00:56:55.870747",
    "current_records": 327,
    "latest_status": "succeeded"
+  },
+  {
+   "source": "moon_layers",
+   "current_version": 1,
+   "current_finished_at": "2026-11-01T01:40:37.026231",
+   "current_records": 1700416,
+   "latest_status": "succeeded"
   }
  ],
  "files": [
@@ -65,7 +72,10 @@
   "catalogue.provenance.json",
   "spacecraft.json",
   "heightmap_shackleton.png",
-  "heightmap_shackleton.json"
+  "heightmap_shackleton.json",
+  "heightmap_shackleton_layers.png",
+  "heightmap_shackleton_layers.json",
+  "heightmap_shackleton_psr.png"
  ],
  "skipped": {}
 }

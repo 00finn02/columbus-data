@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T00:57:08.566462+00:00",
+ "updated": "2026-11-01T01:40:52.363539+00:00",
  "storage": "release asset `state-latest` (state.tar.gz: SQLite database + local storage)",
  "datasets": [
   {
@@ -50,11 +50,18 @@
    "current_finished_at": "2026-11-01T00:56:55.870747",
    "current_records": 327,
    "latest_status": "succeeded"
+  },
+  {
+   "source": "moon_layers",
+   "current_version": 1,
+   "current_finished_at": "2026-11-01T01:40:37.026231",
+   "current_records": 1700416,
+   "latest_status": "succeeded"
   }
  ],
  "state_archive": {
   "file": "state.tar.gz",
-  "bytes": 87151114,
-  "sha256": "a1c142f4b86a8d259f52d1b6762051c2be30a6bb2a573458c3fa538ce7bcca33"
+  "bytes": 90369695,
+  "sha256": "d56134c759a18530ed45fce0a9cf90f05710799af921455d2b1241db67967469"
  }
 }

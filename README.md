@@ -19,6 +19,8 @@ never estimated. A run whose plausibility checks fail publishes nothing.
 | `catalogue.provenance.json` | per-row source dataset and epoch; transfer method and grid |
 | `spacecraft.json` | heliocentric ecliptic J2000 positions (au), spacecraft + references |
 | `heightmap_*.png` / `.json` | lunar south-pole height maps (RGB-encoded heights) and metadata |
+| `heightmap_*_layers.png` / `.json` | illumination, Earth visibility, slope (RGBA) + metadata |
+| `heightmap_*_psr.png` | permanently shadowed regions (255 = PSR) |
 | `status.json` | job outcomes and data state per source |
 
 ## Sources
@@ -28,6 +30,10 @@ never estimated. A run whose plausibility checks fail publishes nothing.
 - NASA PGDA product 81, LOLA 5 m/px south-pole mosaic; Barker et al. 2021,
   doi:10.1016/j.pss.2020.105119 - https://pgda.gsfc.nasa.gov/products/81
 - IAU Gazetteer of Planetary Nomenclature (crater reference for plausibility checks)
+- NASA PGDA product 90, LOLA DEM 80-90 S (LDEM_80S_80MPP_ADJ), context terrain for
+  horizons - https://pgda.gsfc.nasa.gov/products/90
+- NAIF SPICE generic kernels (DE440s, lunar orientation DE421) for Sun/Earth
+  directions - https://naif.jpl.nasa.gov
 - Transfer columns: computed by Columbus (Lambert two-body, prototype conventions) from the
   stored element sets; see `reach_method` in `catalogue.provenance.json`
 
@@ -35,7 +41,7 @@ never estimated. A run whose plausibility checks fail publishes nothing.
 
 LICENCE PLACEHOLDER - to be decided. The upstream terms of the sources above apply to the data.
 
-## Data state (run 2026-11-01T00:56:56.117052+00:00)
+## Data state (run 2026-11-01T01:40:37.360640+00:00)
 
 | source | version | finished (UTC) | records | newest run |
 |---|---|---|---|---|
@@ -46,3 +52,4 @@ LICENCE PLACEHOLDER - to be decided. The upstream terms of the sources above app
 | nhats | 1 | 2026-10-31T23:41:10.634443 | 7164 | succeeded |
 | pgda_lola | 1 | 2026-11-01T00:07:42.572393 | 1 | succeeded |
 | reach | 1 | 2026-11-01T00:56:55.870747 | 327 | succeeded |
+| moon_layers | 1 | 2026-11-01T01:40:37.026231 | 1700416 | succeeded |
