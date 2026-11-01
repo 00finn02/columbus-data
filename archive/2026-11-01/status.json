@@ -1,12 +1,12 @@
 {
- "generated": "2026-11-01T00:07:43.370170+00:00",
+ "generated": "2026-11-01T00:56:56.117052+00:00",
  "columbus_version": "0.1.0",
  "jobs": [
   {
-   "job": "lola",
-   "dataset_id": 8,
+   "job": "reach",
+   "dataset_id": 9,
    "status": "succeeded",
-   "detail": "v1, 1 records"
+   "detail": "v1, 327 records"
   }
  ],
  "datasets": [
@@ -50,6 +50,13 @@
    "current_version": 1,
    "current_finished_at": "2026-11-01T00:07:42.572393",
    "current_records": 1,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "reach",
+   "current_version": 1,
+   "current_finished_at": "2026-11-01T00:56:55.870747",
+   "current_records": 327,
    "latest_status": "succeeded"
   }
  ],

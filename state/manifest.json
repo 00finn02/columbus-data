@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T00:07:58.551628+00:00",
+ "updated": "2026-11-01T00:57:08.566462+00:00",
  "storage": "release asset `state-latest` (state.tar.gz: SQLite database + local storage)",
  "datasets": [
   {
@@ -43,11 +43,18 @@
    "current_finished_at": "2026-11-01T00:07:42.572393",
    "current_records": 1,
    "latest_status": "succeeded"
+  },
+  {
+   "source": "reach",
+   "current_version": 1,
+   "current_finished_at": "2026-11-01T00:56:55.870747",
+   "current_records": 327,
+   "latest_status": "succeeded"
   }
  ],
  "state_archive": {
   "file": "state.tar.gz",
-  "bytes": 87113473,
-  "sha256": "114dd8f1874fd45bea5f6345b84872a9817ba459d987defaf0661a4fd36281a3"
+  "bytes": 87151114,
+  "sha256": "a1c142f4b86a8d259f52d1b6762051c2be30a6bb2a573458c3fa538ce7bcca33"
  }
 }

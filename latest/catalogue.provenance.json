@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-01T00:07:42.685761+00:00",
- "format": "Solkarte catalogue CSV (prototype columns + condition_code)",
+ "generated": "2026-11-01T00:56:56.039629+00:00",
+ "format": "Solkarte catalogue CSV (prototype columns + condition_code + reach)",
  "columns": [
   "full_name",
   "pdes",
@@ -18,14 +18,68 @@
   "spec_T",
   "neo",
   "pha",
-  "condition_code"
+  "condition_code",
+  "dv_out_kms",
+  "dep_jd",
+  "tof_d",
+  "c3_km2s2",
+  "vinf_arr_kms",
+  "dv_ret_kms",
+  "ret_dep_jd",
+  "ret_tof_d",
+  "ret_vinf_earth_kms"
  ],
  "notes": [
   "epoch is JD TDB; elements: heliocentric ecliptic J2000; empty cell = no value",
   "elements are the set with the youngest epoch per object",
   "condition_code refers to the JPL orbit solution of the SBDB round",
-  "physical properties and neo/pha come from the SBDB round below"
+  "physical properties and neo/pha come from the SBDB round below",
+  "reach columns: best outbound (LEO departure + rendezvous, dv_out_kms = total) and best return after a 180 d stay (dv_ret_kms = departure v_inf, Earth capture not included); dep_jd/ret_dep_jd JD TDB, tof in days, km/s, C3 km\u00b2/s\u00b2; empty = no transfer found (see reach_reason) or no reach round"
  ],
+ "reach_dataset": {
+  "source": "Columbus core (computed from stored element sets)",
+  "source_url": null,
+  "dataset_id": 9,
+  "dataset_version": 1,
+  "retrieved_at": "2026-11-01T00:56:55.870747",
+  "data_as_of": "2026-10-31T23:41:06.345484",
+  "epoch_jd_tdb": null,
+  "method": "Lambert two-body, Columbus core v1.0.0",
+  "checks_passed": true
+ },
+ "reach_method": {
+  "departure_start_jd": 2461345.5,
+  "outbound": {
+   "departure_span_d": 1826.25,
+   "departure_points": 366,
+   "tof_points": 48,
+   "objective": "LEO departure dv + rendezvous dv (v_inf at target)"
+  },
+  "return": {
+   "stay_d": 180.0,
+   "departure_span_d": 1095.75,
+   "departure_points": 220,
+   "tof_points": 36,
+   "objective": "departure dv (v_inf) + 0.15 * max(0, v_inf at Earth - 6 km/s)",
+   "earth_capture": "not included"
+  },
+  "tof_range": "max(30, 0.35 t_H) .. max(tmin + 450, 2.1 t_H) days, t_H = Hohmann time",
+  "refinement": {
+   "iterations": 3,
+   "half_width": 3,
+   "factor": 0.35
+  },
+  "leo_radius_km": 6578,
+  "mu_earth_km3s2": 398600.4418,
+  "mu_sun_au3d2": 0.00029591220828559115,
+  "earth_ephemeris": "Standish Table 1 Earth-Moon barycentre minus 0.012150585 x geocentric Moon (prototype series); velocities by central difference (h = 0.02 d)",
+  "core_version": "1.0.0",
+  "asteroid_dataset_id": 1,
+  "element_dataset_ids": [
+   1,
+   5
+  ]
+ },
  "properties_dataset": {
   "source": "JPL Small-Body Database Query API",
   "source_url": "https://ssd-api.jpl.nasa.gov/sbdb_query.api",
@@ -67,2289 +121,2943 @@
    "pdes": "433",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 1,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-00719",
    "pdes": "719",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 2,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-00887",
    "pdes": "887",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 3,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01036",
    "pdes": "1036",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 4,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01580",
    "pdes": "1580",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 5,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01620",
    "pdes": "1620",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 6,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01627",
    "pdes": "1627",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 7,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01685",
    "pdes": "1685",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 8,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01862",
    "pdes": "1862",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 9,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01863",
    "pdes": "1863",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 10,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01864",
    "pdes": "1864",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 11,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01865",
    "pdes": "1865",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 12,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01866",
    "pdes": "1866",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 13,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01915",
    "pdes": "1915",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 14,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01916",
    "pdes": "1916",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 15,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01917",
    "pdes": "1917",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 16,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01943",
    "pdes": "1943",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 17,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01980",
    "pdes": "1980",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 18,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-01981",
    "pdes": "1981",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 19,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02059",
    "pdes": "2059",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 20,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02061",
    "pdes": "2061",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 21,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02062",
    "pdes": "2062",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 22,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02063",
    "pdes": "2063",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 23,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02100",
    "pdes": "2100",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 24,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02102",
    "pdes": "2102",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 25,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02201",
    "pdes": "2201",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 26,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02212",
    "pdes": "2212",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 27,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02340",
    "pdes": "2340",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 28,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02368",
    "pdes": "2368",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 29,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-02608",
    "pdes": "2608",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 30,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03102",
    "pdes": "3102",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 31,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03103",
    "pdes": "3103",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 32,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03122",
    "pdes": "3122",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 33,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03199",
    "pdes": "3199",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 34,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03200",
    "pdes": "3200",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 35,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03288",
    "pdes": "3288",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 36,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03352",
    "pdes": "3352",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 37,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03551",
    "pdes": "3551",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 38,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03552",
    "pdes": "3552",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 39,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03671",
    "pdes": "3671",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 40,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03691",
    "pdes": "3691",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 41,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03753",
    "pdes": "3753",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 42,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03757",
    "pdes": "3757",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 43,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-03908",
    "pdes": "3908",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 44,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04015",
    "pdes": "4015",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 45,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04034",
    "pdes": "4034",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 46,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04055",
    "pdes": "4055",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 47,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04179",
    "pdes": "4179",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 48,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04183",
    "pdes": "4183",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 49,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04197",
    "pdes": "4197",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 50,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04341",
    "pdes": "4341",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 51,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04503",
    "pdes": "4503",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 52,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04660",
    "pdes": "4660",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 53,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04688",
    "pdes": "4688",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 54,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04947",
    "pdes": "4947",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 55,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04954",
    "pdes": "4954",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 56,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-04957",
    "pdes": "4957",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 57,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05131",
    "pdes": "5131",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 58,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05143",
    "pdes": "5143",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 59,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05587",
    "pdes": "5587",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 60,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05604",
    "pdes": "5604",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 61,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05626",
    "pdes": "5626",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 62,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05646",
    "pdes": "5646",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 63,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05660",
    "pdes": "5660",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 64,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05751",
    "pdes": "5751",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 65,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05828",
    "pdes": "5828",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 66,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-05836",
    "pdes": "5836",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 67,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-06047",
    "pdes": "6047",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 68,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-06053",
    "pdes": "6053",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 69,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-06455",
    "pdes": "6455",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 70,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-06489",
    "pdes": "6489",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 71,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-06569",
    "pdes": "6569",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 72,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-06611",
    "pdes": "6611",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 73,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07336",
    "pdes": "7336",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 74,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07341",
    "pdes": "7341",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 75,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07358",
    "pdes": "7358",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 76,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07474",
    "pdes": "7474",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 77,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07480",
    "pdes": "7480",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 78,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07482",
    "pdes": "7482",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 79,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07753",
    "pdes": "7753",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 80,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07822",
    "pdes": "7822",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 81,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07888",
    "pdes": "7888",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 82,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07889",
    "pdes": "7889",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 83,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-07977",
    "pdes": "7977",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 84,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-08176",
    "pdes": "8176",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 85,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-08201",
    "pdes": "8201",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 86,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-08566",
    "pdes": "8566",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 87,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-09400",
    "pdes": "9400",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 88,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-100756",
    "pdes": "100756",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 164,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-100926",
    "pdes": "100926",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 165,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-10115",
    "pdes": "10115",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 89,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-10165",
    "pdes": "10165",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 90,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-101955",
    "pdes": "101955",
    "elements_dataset_id": 5,
    "elements_source": "horizons_elements",
-   "epoch_jd": 2461344.5
+   "epoch_jd": 2461344.5,
+   "reach_element_set_id": 537,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-10302",
    "pdes": "10302",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 91,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-10563",
    "pdes": "10563",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 92,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-11066",
    "pdes": "11066",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 93,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-11311",
    "pdes": "11311",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 94,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-11398",
    "pdes": "11398",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 95,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-11405",
    "pdes": "11405",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 96,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-11500",
    "pdes": "11500",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 97,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-12538",
    "pdes": "12538",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 98,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-12711",
    "pdes": "12711",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 99,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-12923",
    "pdes": "12923",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 100,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-13651",
    "pdes": "13651",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 101,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-136564",
    "pdes": "136564",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 167,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-136745",
    "pdes": "136745",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 168,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-136793",
    "pdes": "136793",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 169,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-136795",
    "pdes": "136795",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 170,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-136993",
    "pdes": "136993",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 171,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-137052",
    "pdes": "137052",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 172,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-137062",
    "pdes": "137062",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 173,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-137064",
    "pdes": "137064",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 174,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-137126",
    "pdes": "137126",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 175,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-137158",
    "pdes": "137158",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 176,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-137170",
    "pdes": "137170",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 177,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-137799",
    "pdes": "137799",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 178,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-137805",
    "pdes": "137805",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 179,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-137925",
    "pdes": "137925",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 180,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-138205",
    "pdes": "138205",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 181,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-138258",
    "pdes": "138258",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 182,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-138325",
    "pdes": "138325",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 183,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-138524",
    "pdes": "138524",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 184,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-138893",
    "pdes": "138893",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 185,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-138911",
    "pdes": "138911",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 186,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-139056",
    "pdes": "139056",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 187,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-139622",
    "pdes": "139622",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 188,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-141052",
    "pdes": "141052",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 189,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-141079",
    "pdes": "141079",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 190,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-14402",
    "pdes": "14402",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 102,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-152560",
    "pdes": "152560",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 191,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-152563",
    "pdes": "152563",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 192,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-152679",
    "pdes": "152679",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 193,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-152756",
    "pdes": "152756",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 194,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-152931",
    "pdes": "152931",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 195,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-152978",
    "pdes": "152978",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 196,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-153002",
    "pdes": "153002",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 197,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-153201",
    "pdes": "153201",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 198,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-153953",
    "pdes": "153953",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 199,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-15745",
    "pdes": "15745",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 103,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-15817",
    "pdes": "15817",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 104,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-16064",
    "pdes": "16064",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 105,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-161989",
    "pdes": "161989",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 200,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162011",
    "pdes": "162011",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 201,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162015",
    "pdes": "162015",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 202,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162142",
    "pdes": "162142",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 203,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162157",
    "pdes": "162157",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 204,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162173",
    "pdes": "162173",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 205,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162385",
    "pdes": "162385",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 206,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162567",
    "pdes": "162567",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 207,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162740",
    "pdes": "162740",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 208,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162781",
    "pdes": "162781",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 209,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-162998",
    "pdes": "162998",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 210,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-163014",
    "pdes": "163014",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 211,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-16657",
    "pdes": "16657",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 106,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-16834",
    "pdes": "16834",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 107,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-16960",
    "pdes": "16960",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 108,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-171839",
    "pdes": "171839",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 212,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-17274",
    "pdes": "17274",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 109,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-17511",
    "pdes": "17511",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 110,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-175706",
    "pdes": "175706",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 213,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-175729",
    "pdes": "175729",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 214,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-18736",
    "pdes": "18736",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 111,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-18882",
    "pdes": "18882",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 112,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-189040",
    "pdes": "189040",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 215,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-192563",
    "pdes": "192563",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 216,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-19356",
    "pdes": "19356",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 113,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-194006",
    "pdes": "194006",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 217,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-194268",
    "pdes": "194268",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 218,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-194386",
    "pdes": "194386",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 219,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-200754",
    "pdes": "200754",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 220,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-200840",
    "pdes": "200840",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 221,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-20255",
    "pdes": "20255",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 114,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-203015",
    "pdes": "203015",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 222,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-20425",
    "pdes": "20425",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 115,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-205744",
    "pdes": "205744",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 223,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-20790",
    "pdes": "20790",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 116,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-207970",
    "pdes": "207970",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 224,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-208023",
    "pdes": "208023",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 225,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-20826",
    "pdes": "20826",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 117,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-215188",
    "pdes": "215188",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 226,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-219071",
    "pdes": "219071",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 227,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-22099",
    "pdes": "22099",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 118,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-222165",
    "pdes": "222165",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 228,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-22771",
    "pdes": "22771",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 119,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-228368",
    "pdes": "228368",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 229,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-23548",
    "pdes": "23548",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 120,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-24475",
    "pdes": "24475",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 121,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-25143",
    "pdes": "25143",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 122,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-25330",
    "pdes": "25330",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 123,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-257838",
    "pdes": "257838",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 230,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-276049",
    "pdes": "276049",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 231,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-283460",
    "pdes": "283460",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 232,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-285540",
    "pdes": "285540",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 233,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-302311",
    "pdes": "302311",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 234,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-307161",
    "pdes": "307161",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 235,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-308635",
    "pdes": "308635",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 236,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-310402",
    "pdes": "310402",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 237,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-31345",
    "pdes": "31345",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 124,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-31346",
    "pdes": "31346",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 125,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-322652",
    "pdes": "322652",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 238,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-322775",
    "pdes": "322775",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 239,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-32906",
    "pdes": "32906",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 126,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-337866",
    "pdes": "337866",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 240,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-344074",
    "pdes": "344074",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 241,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-350513",
    "pdes": "350513",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 242,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-35107",
    "pdes": "35107",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 127,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-353938",
    "pdes": "353938",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 243,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-35396",
    "pdes": "35396",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 128,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-354127",
    "pdes": "354127",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 244,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-354182",
    "pdes": "354182",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 245,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-35432",
    "pdes": "35432",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 129,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-35670",
    "pdes": "35670",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 130,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-357022",
    "pdes": "357022",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 246,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-36017",
    "pdes": "36017",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 131,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-36183",
    "pdes": "36183",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 132,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-36284",
    "pdes": "36284",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 133,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-363067",
    "pdes": "363067",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 247,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-370061",
    "pdes": "370061",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 248,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-37336",
    "pdes": "37336",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 134,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-380188",
    "pdes": "380188",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 249,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-385186",
    "pdes": "385186",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 250,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-399433",
    "pdes": "399433",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 251,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-401857",
    "pdes": "401857",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 252,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-40267",
    "pdes": "40267",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 135,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-413021",
    "pdes": "413021",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 253,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-413038",
    "pdes": "413038",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 254,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-413123",
    "pdes": "413123",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 255,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-415949",
    "pdes": "415949",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 256,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-422686",
    "pdes": "422686",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 257,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-437905",
    "pdes": "437905",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 258,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-446804",
    "pdes": "446804",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 259,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-455213",
    "pdes": "455213",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 260,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-474158",
    "pdes": "474158",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 261,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-483422",
    "pdes": "483422",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 262,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-483423",
    "pdes": "483423",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 263,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-48603",
    "pdes": "48603",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 136,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-506437",
    "pdes": "506437",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 264,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-506459",
    "pdes": "506459",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 265,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-508774",
    "pdes": "508774",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 266,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-516398",
    "pdes": "516398",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 267,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-523585",
    "pdes": "523585",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 268,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-523801",
    "pdes": "523801",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 269,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-523804",
    "pdes": "523804",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 270,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-523805",
    "pdes": "523805",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 271,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-523972",
    "pdes": "523972",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 272,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-524150",
    "pdes": "524150",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 273,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-524392",
    "pdes": "524392",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 274,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-53319",
    "pdes": "53319",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 137,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-53435",
    "pdes": "53435",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 138,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-54686",
    "pdes": "54686",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 139,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-54690",
    "pdes": "54690",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 140,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-55532",
    "pdes": "55532",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 141,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-612050",
    "pdes": "612050",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 275,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-612103",
    "pdes": "612103",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 276,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-612199",
    "pdes": "612199",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 277,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-612267",
    "pdes": "612267",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 278,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-65679",
    "pdes": "65679",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 142,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-65706",
    "pdes": "65706",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 143,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-65803",
    "pdes": "65803",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 144,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-66391",
    "pdes": "66391",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 145,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-66959",
    "pdes": "66959",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 146,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-826914",
    "pdes": "826914",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 279,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-826946",
    "pdes": "826946",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 280,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-85490",
    "pdes": "85490",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 147,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-85774",
    "pdes": "85774",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 148,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-85818",
    "pdes": "85818",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 149,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-85938",
    "pdes": "85938",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 150,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-85953",
    "pdes": "85953",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 151,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-85989",
    "pdes": "85989",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 152,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-85990",
    "pdes": "85990",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 153,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-86039",
    "pdes": "86039",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 154,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-86326",
    "pdes": "86326",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 155,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-86450",
    "pdes": "86450",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 156,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-86819",
    "pdes": "86819",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 157,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-86829",
    "pdes": "86829",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 158,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-875207",
    "pdes": "875207",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 281,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-89355",
    "pdes": "89355",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 159,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-96590",
    "pdes": "96590",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 160,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-98943",
    "pdes": "98943",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 161,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-99907",
    "pdes": "99907",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 162,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-99942",
    "pdes": "99942",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 163,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P0BB2DF86EB",
    "pdes": "1999 DB2",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 288,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P0C6F7A652F",
    "pdes": "2001 HK31",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 303,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P1291936ECC",
    "pdes": "2000 AH205",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 295,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P160766AD97",
    "pdes": "2001 YE1",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 311,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P2505B3CF98",
    "pdes": "2002 AQ2",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 313,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P27EDBAE010",
    "pdes": "2002 BA1",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 318,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P2BB4DDCBFC",
    "pdes": "1999 SE10",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 292,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P2DB666EBC3",
    "pdes": "2009 DD45",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 327,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P36DDAFC58C",
    "pdes": "2001 TC45",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 307,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P384B4F1983",
    "pdes": "2001 SJ262",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 305,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P3B6E2D22B0",
    "pdes": "1991 XB",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 282,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P3C809A01D7",
    "pdes": "2002 CS11",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 320,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P471D8993CA",
    "pdes": "1997 RT",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 284,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P4EA677A2BF",
    "pdes": "2002 EA",
    "elements_dataset_id": 5,
    "elements_source": "horizons_elements",
-   "epoch_jd": 2461344.5
+   "epoch_jd": 2461344.5,
+   "reach_element_set_id": 538,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P52903D11D4",
    "pdes": "1998 BT13",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 286,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P54F6031B06",
    "pdes": "2000 KL33",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 299,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P55C0123373",
    "pdes": "2002 AV",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 312,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P5FE0829B48",
    "pdes": "2002 AH29",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 316,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P7944D3CBF3",
    "pdes": "2001 UC5",
    "elements_dataset_id": 5,
    "elements_source": "horizons_elements",
-   "epoch_jd": 2461344.5
+   "epoch_jd": 2461344.5,
+   "reach_element_set_id": 539,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P7BD9653983",
    "pdes": "2000 AE205",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 294,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P8123F59B05",
    "pdes": "2002 BM26",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 319,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P84EB458478",
    "pdes": "1999 YD",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 293,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P8AF7147E6C",
    "pdes": "2001 TY44",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 306,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P8F4CBBE758",
    "pdes": "2000 WJ63",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 300,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-P96D48530CF",
    "pdes": "2002 EC",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 326,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PA10DFC1F14",
    "pdes": "1999 RB32",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 291,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PA1D413F793",
    "pdes": "2000 YA",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 301,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PAB57F5254C",
    "pdes": "1997 TT25",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 285,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PAC9DEC8AEE",
    "pdes": "2002 AT4",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 314,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PB7F58F7B05",
    "pdes": "2000 CN33",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 296,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PC623C2C58A",
    "pdes": "2002 DO3",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 323,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PCAD8224517",
    "pdes": "1998 HT31",
    "elements_dataset_id": 5,
    "elements_source": "horizons_elements",
-   "epoch_jd": 2461344.5
+   "epoch_jd": 2461344.5,
+   "reach_element_set_id": 540,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PD161DC25A5",
    "pdes": "2001 UU92",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 309,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PD93C8E00AC",
    "pdes": "2001 WH2",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 310,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PDA0A55CE40",
    "pdes": "2002 AL31",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 317,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PDA3F1CA08F",
    "pdes": "2002 DQ3",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 324,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PDC6D0C9450",
    "pdes": "2002 DH2",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 322,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PDC85533B9E",
    "pdes": "2002 AK14",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 315,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PE4A9C425FF",
    "pdes": "1999 FN19",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 290,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PE629249C18",
    "pdes": "2000 GV127",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 298,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PE8E7641A07",
    "pdes": "2000 DO8",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 297,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PECC6A58ACD",
    "pdes": "2001 EC",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 302,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PEDCA6B52F5",
    "pdes": "1997 AC11",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 283,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PEF2B69654B",
    "pdes": "2001 JV1",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 304,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PF60CB4136C",
    "pdes": "1999 DY2",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 289,
+   "reach_reason": null
   },
   {
    "clb_id": "CLB-AST-PFAEB83097D",
    "pdes": "2002 CT46",
    "elements_dataset_id": 1,
    "elements_source": "sbdb",
-   "epoch_jd": 2461200.5
+   "epoch_jd": 2461200.5,
+   "reach_element_set_id": 321,
+   "reach_reason": null
   }
  ]
 }
