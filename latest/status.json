@@ -1,54 +1,78 @@
 {
- "generated": "2026-11-01T10:25:22.271029+00:00",
+ "generated": "2026-11-02T11:01:01.119536+00:00",
  "columbus_version": "0.1.0",
  "jobs": [
   {
-   "job": "cad",
-   "dataset_id": 11,
+   "job": "sbdb",
+   "dataset_id": 13,
    "status": "succeeded",
-   "detail": "v3, 3175 records"
+   "detail": "v2, 536 records"
+  },
+  {
+   "job": "nhats",
+   "dataset_id": 14,
+   "status": "succeeded",
+   "detail": "v2, 7165 records"
+  },
+  {
+   "job": "cad",
+   "dataset_id": 15,
+   "status": "succeeded",
+   "detail": "v4, 3176 records"
   },
   {
    "job": "horizons",
-   "dataset_id": 12,
+   "dataset_id": 16,
    "status": "succeeded",
-   "detail": "v3, 7679 records"
+   "detail": "v4, 7678 records"
+  },
+  {
+   "job": "horizons-elements",
+   "dataset_id": 17,
+   "status": "succeeded",
+   "detail": "v2, 0 records"
+  },
+  {
+   "job": "reach",
+   "dataset_id": 18,
+   "status": "succeeded",
+   "detail": "v2, 327 records"
   }
  ],
  "datasets": [
   {
    "source": "sbdb",
-   "current_version": 1,
-   "current_finished_at": "2026-10-31T23:41:06.345484",
+   "current_version": 2,
+   "current_finished_at": "2026-11-02T10:58:51.115948",
    "current_records": 536,
    "latest_status": "succeeded"
   },
   {
    "source": "cad",
-   "current_version": 3,
-   "current_finished_at": "2026-11-01T10:25:03.114396",
-   "current_records": 3175,
+   "current_version": 4,
+   "current_finished_at": "2026-11-02T10:58:56.911928",
+   "current_records": 3176,
    "latest_status": "succeeded"
   },
   {
    "source": "horizons",
-   "current_version": 3,
-   "current_finished_at": "2026-11-01T10:25:21.935901",
-   "current_records": 7679,
+   "current_version": 4,
+   "current_finished_at": "2026-11-02T10:59:15.533883",
+   "current_records": 7678,
    "latest_status": "succeeded"
   },
   {
    "source": "horizons_elements",
-   "current_version": 1,
-   "current_finished_at": "2026-10-31T23:45:02.703039",
-   "current_records": 211,
+   "current_version": 2,
+   "current_finished_at": "2026-11-02T10:59:15.550617",
+   "current_records": 0,
    "latest_status": "succeeded"
   },
   {
    "source": "nhats",
-   "current_version": 1,
-   "current_finished_at": "2026-10-31T23:41:10.634443",
-   "current_records": 7164,
+   "current_version": 2,
+   "current_finished_at": "2026-11-02T10:58:55.098040",
+   "current_records": 7165,
    "latest_status": "succeeded"
   },
   {
@@ -60,8 +84,8 @@
   },
   {
    "source": "reach",
-   "current_version": 1,
-   "current_finished_at": "2026-11-01T00:56:55.870747",
+   "current_version": 2,
+   "current_finished_at": "2026-11-02T11:01:00.844717",
    "current_records": 327,
    "latest_status": "succeeded"
   },
