@@ -1,0 +1,87 @@
+{
+ "generated": "2026-11-04T10:52:26.371008+00:00",
+ "columbus_version": "0.1.0",
+ "jobs": [
+  {
+   "job": "cad",
+   "dataset_id": 21,
+   "status": "succeeded",
+   "detail": "v6, 3177 records"
+  },
+  {
+   "job": "horizons",
+   "dataset_id": 22,
+   "status": "succeeded",
+   "detail": "v6, 7746 records"
+  }
+ ],
+ "datasets": [
+  {
+   "source": "sbdb",
+   "current_version": 2,
+   "current_finished_at": "2026-11-02T10:58:51.115948",
+   "current_records": 536,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "cad",
+   "current_version": 6,
+   "current_finished_at": "2026-11-04T10:52:07.256349",
+   "current_records": 3177,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "horizons",
+   "current_version": 6,
+   "current_finished_at": "2026-11-04T10:52:26.105074",
+   "current_records": 7746,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "horizons_elements",
+   "current_version": 2,
+   "current_finished_at": "2026-11-02T10:59:15.550617",
+   "current_records": 0,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "nhats",
+   "current_version": 2,
+   "current_finished_at": "2026-11-02T10:58:55.098040",
+   "current_records": 7165,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "pgda_lola",
+   "current_version": 1,
+   "current_finished_at": "2026-11-01T00:07:42.572393",
+   "current_records": 1,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "reach",
+   "current_version": 2,
+   "current_finished_at": "2026-11-02T11:01:00.844717",
+   "current_records": 327,
+   "latest_status": "succeeded"
+  },
+  {
+   "source": "moon_layers",
+   "current_version": 1,
+   "current_finished_at": "2026-11-01T01:40:37.026231",
+   "current_records": 1700416,
+   "latest_status": "succeeded"
+  }
+ ],
+ "files": [
+  "catalogue.csv",
+  "catalogue.provenance.json",
+  "spacecraft.json",
+  "heightmap_shackleton.png",
+  "heightmap_shackleton.json",
+  "heightmap_shackleton_layers.png",
+  "heightmap_shackleton_layers.json",
+  "heightmap_shackleton_psr.png"
+ ],
+ "skipped": {}
+}
