@@ -1,18 +1,18 @@
 {
- "generated": "2026-11-04T10:52:26.371008+00:00",
+ "generated": "2026-11-05T10:50:43.961264+00:00",
  "columbus_version": "0.1.0",
  "jobs": [
   {
    "job": "cad",
-   "dataset_id": 21,
+   "dataset_id": 23,
    "status": "succeeded",
-   "detail": "v6, 3177 records"
+   "detail": "v7, 3187 records"
   },
   {
    "job": "horizons",
-   "dataset_id": 22,
+   "dataset_id": 24,
    "status": "succeeded",
-   "detail": "v6, 7746 records"
+   "detail": "v7, 7745 records"
   }
  ],
  "datasets": [
@@ -25,16 +25,16 @@
   },
   {
    "source": "cad",
-   "current_version": 6,
-   "current_finished_at": "2026-11-04T10:52:07.256349",
-   "current_records": 3177,
+   "current_version": 7,
+   "current_finished_at": "2026-11-05T10:50:25.027486",
+   "current_records": 3187,
    "latest_status": "succeeded"
   },
   {
    "source": "horizons",
-   "current_version": 6,
-   "current_finished_at": "2026-11-04T10:52:26.105074",
-   "current_records": 7746,
+   "current_version": 7,
+   "current_finished_at": "2026-11-05T10:50:43.627467",
+   "current_records": 7745,
    "latest_status": "succeeded"
   },
   {
