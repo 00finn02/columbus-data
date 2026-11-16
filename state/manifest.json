@@ -1,40 +1,40 @@
 {
- "updated": "2026-11-15T10:48:56.209182+00:00",
+ "updated": "2026-11-16T11:12:43.473971+00:00",
  "storage": "release asset `state-latest` (state.tar.gz: SQLite database + local storage)",
  "datasets": [
   {
    "source": "sbdb",
-   "current_version": 3,
-   "current_finished_at": "2026-11-09T11:26:42.466763",
+   "current_version": 4,
+   "current_finished_at": "2026-11-16T11:10:46.882838",
    "current_records": 536,
    "latest_status": "succeeded"
   },
   {
    "source": "cad",
-   "current_version": 17,
-   "current_finished_at": "2026-11-15T10:48:24.402176",
+   "current_version": 18,
+   "current_finished_at": "2026-11-16T11:10:53.811454",
    "current_records": 3197,
    "latest_status": "succeeded"
   },
   {
    "source": "horizons",
-   "current_version": 17,
-   "current_finished_at": "2026-11-15T10:48:42.505946",
-   "current_records": 7735,
+   "current_version": 18,
+   "current_finished_at": "2026-11-16T11:11:11.821767",
+   "current_records": 7734,
    "latest_status": "succeeded"
   },
   {
    "source": "horizons_elements",
-   "current_version": 3,
-   "current_finished_at": "2026-11-09T11:27:07.479954",
+   "current_version": 4,
+   "current_finished_at": "2026-11-16T11:11:11.859033",
    "current_records": 0,
    "latest_status": "succeeded"
   },
   {
    "source": "nhats",
-   "current_version": 3,
-   "current_finished_at": "2026-11-09T11:26:46.625857",
-   "current_records": 7197,
+   "current_version": 4,
+   "current_finished_at": "2026-11-16T11:10:50.088440",
+   "current_records": 7215,
    "latest_status": "succeeded"
   },
   {
@@ -46,8 +46,8 @@
   },
   {
    "source": "reach",
-   "current_version": 3,
-   "current_finished_at": "2026-11-09T11:28:51.209807",
+   "current_version": 4,
+   "current_finished_at": "2026-11-16T11:12:28.006830",
    "current_records": 327,
    "latest_status": "succeeded"
   },
@@ -61,7 +61,7 @@
  ],
  "state_archive": {
   "file": "state.tar.gz",
-  "bytes": 105070686,
-  "sha256": "9b2ab7101495d9655a8c0d8ed32d834fcbb5d1ce45fafbe39605fb03c47842ce"
+  "bytes": 107224780,
+  "sha256": "b0c8c9ad60645f07caeaa932c96f922f31af1d22aff8888db3520ea0e0c970d4"
  }
 }
