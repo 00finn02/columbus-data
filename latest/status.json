@@ -1,42 +1,18 @@
 {
- "generated": "2026-11-16T11:12:28.284819+00:00",
+ "generated": "2026-11-17T11:47:49.026093+00:00",
  "columbus_version": "0.1.0",
  "jobs": [
   {
-   "job": "sbdb",
-   "dataset_id": 49,
-   "status": "succeeded",
-   "detail": "v4, 536 records"
-  },
-  {
-   "job": "nhats",
-   "dataset_id": 50,
-   "status": "succeeded",
-   "detail": "v4, 7215 records"
-  },
-  {
    "job": "cad",
-   "dataset_id": 51,
+   "dataset_id": 55,
    "status": "succeeded",
-   "detail": "v18, 3197 records"
+   "detail": "v19, 3201 records"
   },
   {
    "job": "horizons",
-   "dataset_id": 52,
+   "dataset_id": 56,
    "status": "succeeded",
-   "detail": "v18, 7734 records"
-  },
-  {
-   "job": "horizons-elements",
-   "dataset_id": 53,
-   "status": "succeeded",
-   "detail": "v4, 0 records"
-  },
-  {
-   "job": "reach",
-   "dataset_id": 54,
-   "status": "succeeded",
-   "detail": "v4, 327 records"
+   "detail": "v19, 7733 records"
   }
  ],
  "datasets": [
@@ -49,16 +25,16 @@
   },
   {
    "source": "cad",
-   "current_version": 18,
-   "current_finished_at": "2026-11-16T11:10:53.811454",
-   "current_records": 3197,
+   "current_version": 19,
+   "current_finished_at": "2026-11-17T11:47:30.796632",
+   "current_records": 3201,
    "latest_status": "succeeded"
   },
   {
    "source": "horizons",
-   "current_version": 18,
-   "current_finished_at": "2026-11-16T11:11:11.821767",
-   "current_records": 7734,
+   "current_version": 19,
+   "current_finished_at": "2026-11-17T11:47:48.762545",
+   "current_records": 7733,
    "latest_status": "succeeded"
   },
   {
