@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T11:32:37.510488+00:00",
+ "updated": "2026-11-21T10:58:02.752181+00:00",
  "storage": "release asset `state-latest` (state.tar.gz: SQLite database + local storage)",
  "datasets": [
   {
@@ -11,16 +11,16 @@
   },
   {
    "source": "cad",
-   "current_version": 22,
-   "current_finished_at": "2026-11-20T11:32:02.542472",
-   "current_records": 3199,
+   "current_version": 23,
+   "current_finished_at": "2026-11-21T10:57:26.914631",
+   "current_records": 3200,
    "latest_status": "succeeded"
   },
   {
    "source": "horizons",
-   "current_version": 22,
-   "current_finished_at": "2026-11-20T11:32:20.177269",
-   "current_records": 7730,
+   "current_version": 23,
+   "current_finished_at": "2026-11-21T10:57:44.566817",
+   "current_records": 7729,
    "latest_status": "succeeded"
   },
   {
@@ -61,7 +61,7 @@
  ],
  "state_archive": {
   "file": "state.tar.gz",
-  "bytes": 110593570,
-  "sha256": "7d7cc5914984f456f1832a6434254c822b872983fe416ccd67fe31217dacb1d3"
+  "bytes": 111433195,
+  "sha256": "e7e7d43cff3ee79be41ae77fcc8592d316d3b2eb9e1dd3a761d4832b9531cf57"
  }
 }
