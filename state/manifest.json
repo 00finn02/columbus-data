@@ -1,40 +1,40 @@
 {
- "updated": "2026-11-22T11:17:16.598665+00:00",
+ "updated": "2026-11-23T12:31:15.312710+00:00",
  "storage": "release asset `state-latest` (state.tar.gz: SQLite database + local storage)",
  "datasets": [
   {
    "source": "sbdb",
-   "current_version": 4,
-   "current_finished_at": "2026-11-16T11:10:46.882838",
+   "current_version": 5,
+   "current_finished_at": "2026-11-23T12:29:16.389118",
    "current_records": 536,
    "latest_status": "succeeded"
   },
   {
    "source": "cad",
-   "current_version": 24,
-   "current_finished_at": "2026-11-22T11:16:44.174878",
-   "current_records": 3194,
+   "current_version": 25,
+   "current_finished_at": "2026-11-23T12:29:21.753831",
+   "current_records": 3193,
    "latest_status": "succeeded"
   },
   {
    "source": "horizons",
-   "current_version": 24,
-   "current_finished_at": "2026-11-22T11:17:02.331235",
-   "current_records": 7728,
+   "current_version": 25,
+   "current_finished_at": "2026-11-23T12:29:39.753734",
+   "current_records": 7727,
    "latest_status": "succeeded"
   },
   {
    "source": "horizons_elements",
-   "current_version": 4,
-   "current_finished_at": "2026-11-16T11:11:11.859033",
+   "current_version": 5,
+   "current_finished_at": "2026-11-23T12:29:39.778498",
    "current_records": 0,
    "latest_status": "succeeded"
   },
   {
    "source": "nhats",
-   "current_version": 4,
-   "current_finished_at": "2026-11-16T11:10:50.088440",
-   "current_records": 7215,
+   "current_version": 5,
+   "current_finished_at": "2026-11-23T12:29:19.763087",
+   "current_records": 7229,
    "latest_status": "succeeded"
   },
   {
@@ -46,8 +46,8 @@
   },
   {
    "source": "reach",
-   "current_version": 4,
-   "current_finished_at": "2026-11-16T11:12:28.006830",
+   "current_version": 5,
+   "current_finished_at": "2026-11-23T12:30:58.118859",
    "current_records": 327,
    "latest_status": "succeeded"
   },
@@ -61,7 +61,7 @@
  ],
  "state_archive": {
   "file": "state.tar.gz",
-  "bytes": 112270537,
-  "sha256": "c368bbb3da5275ca629b4b7251c7bba450a0443dc7e943c55531a8b868a4397a"
+  "bytes": 114334057,
+  "sha256": "5de9b169f37c753e1069c3ef805ac7f1dfa1d0ca9b0d6e10e262dee0a3234c80"
  }
 }

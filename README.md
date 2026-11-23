@@ -41,15 +41,15 @@ never estimated. A run whose plausibility checks fail publishes nothing.
 
 LICENCE PLACEHOLDER - to be decided. The upstream terms of the sources above apply to the data.
 
-## Data state (run 2026-11-22T11:17:02.710040+00:00)
+## Data state (run 2026-11-23T12:30:58.417132+00:00)
 
 | source | version | finished (UTC) | records | newest run |
 |---|---|---|---|---|
-| sbdb | 4 | 2026-11-16T11:10:46.882838 | 536 | succeeded |
-| cad | 24 | 2026-11-22T11:16:44.174878 | 3194 | succeeded |
-| horizons | 24 | 2026-11-22T11:17:02.331235 | 7728 | succeeded |
-| horizons_elements | 4 | 2026-11-16T11:11:11.859033 | 0 | succeeded |
-| nhats | 4 | 2026-11-16T11:10:50.088440 | 7215 | succeeded |
+| sbdb | 5 | 2026-11-23T12:29:16.389118 | 536 | succeeded |
+| cad | 25 | 2026-11-23T12:29:21.753831 | 3193 | succeeded |
+| horizons | 25 | 2026-11-23T12:29:39.753734 | 7727 | succeeded |
+| horizons_elements | 5 | 2026-11-23T12:29:39.778498 | 0 | succeeded |
+| nhats | 5 | 2026-11-23T12:29:19.763087 | 7229 | succeeded |
 | pgda_lola | 1 | 2026-11-01T00:07:42.572393 | 1 | succeeded |
-| reach | 4 | 2026-11-16T11:12:28.006830 | 327 | succeeded |
+| reach | 5 | 2026-11-23T12:30:58.118859 | 327 | succeeded |
 | moon_layers | 1 | 2026-11-01T01:40:37.026231 | 1700416 | succeeded |
