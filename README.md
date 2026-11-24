@@ -41,13 +41,13 @@ never estimated. A run whose plausibility checks fail publishes nothing.
 
 LICENCE PLACEHOLDER - to be decided. The upstream terms of the sources above apply to the data.
 
-## Data state (run 2026-11-23T12:30:58.417132+00:00)
+## Data state (run 2026-11-24T13:39:05.826560+00:00)
 
 | source | version | finished (UTC) | records | newest run |
 |---|---|---|---|---|
 | sbdb | 5 | 2026-11-23T12:29:16.389118 | 536 | succeeded |
-| cad | 25 | 2026-11-23T12:29:21.753831 | 3193 | succeeded |
-| horizons | 25 | 2026-11-23T12:29:39.753734 | 7727 | succeeded |
+| cad | 26 | 2026-11-24T13:38:46.932679 | 3190 | succeeded |
+| horizons | 26 | 2026-11-24T13:39:05.239088 | 7726 | succeeded |
 | horizons_elements | 5 | 2026-11-23T12:29:39.778498 | 0 | succeeded |
 | nhats | 5 | 2026-11-23T12:29:19.763087 | 7229 | succeeded |
 | pgda_lola | 1 | 2026-11-01T00:07:42.572393 | 1 | succeeded |
